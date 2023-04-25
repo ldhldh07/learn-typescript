@@ -13,7 +13,7 @@ interface Contact {
 enum PhoneType {
   Home = 'home',
   Office = 'office',
-  Studio = 'studio', 
+  Studio = 'studio',
 }
 
 // api
@@ -84,26 +84,31 @@ class AddressBook {
     return this.contacts.filter(contact => contact.address === address);
   }
 
-  findContactByPhone(phoneNumber: number, phoneType: string): Contact[] {
+  findContactByPhone(phoneNumber: number, phoneType: PhoneType): Contact[] {
     return this.contacts.filter(
       contact => contact.phones[phoneType].num === phoneNumber
     );
   }
-  findContactByPhone('office');
-  findContactByPhone('homee');
+  // findContactByPhone(P)
+  // findContactByPhone('homee')
 
-  addContact(contact) {
+  addContact(contact: Contact): void {
     this.contacts.push(contact);
   }
 
-  displayListByName() {
+  displayListByName(): string[] {
     return this.contacts.map(contact => contact.name);
   }
 
-  displayListByAddress() {
+  displayListByAddress(): string[] {
     return this.contacts.map(contact => contact.address);
   }
   /* ------------------------------------------------ */
 }
+
+// let heroes = [
+//   { name: 'Tony', age: 30 },
+//   { name: 'Captain', age: 100 },
+// ];
 
 new AddressBook();
